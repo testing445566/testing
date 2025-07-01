@@ -1,0 +1,78 @@
+.eod-report-task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .eod-report-task-svg {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: $commonGap;
+    font-weight: $fontWeightNormal;
+    svg {
+      color: $eodReportDetailsSvgColor;
+    }
+  }
+  .eod-show-time {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: $commonGap;
+    background-color: $eodTimeBgColor;
+    padding: $eodTimePadding;
+    border: 1px solid $eodTimeBorderColor;
+    border-radius: 2rem;
+    color: $eodTimeTextColor;
+    font-weight: $fontWeightNormal;
+    svg {
+      color: $eodTimeSvgColor;
+    }
+  }
+}
+
+.end-report-fiels {
+  .end-report-field {
+    margin-top: $commonMargingTop;
+    .end-report-field-label {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: $commonGap;
+      font-weight: $fontWeightNormal;
+      color: $commonSubHeadingColor;
+      font-size: $fontSize;
+      margin-bottom: 0.5rem;
+    }
+    .end-report-field-input {
+      padding: $reportInputPadding;
+      border-radius: $reportInputBorderRaduis;
+      border: 1px solid $commonBorderColor;
+      width: 100%;
+      font-size: $reportInputFontSize;
+           &:active{
+       outline: 2px solid rgb(59 130 246);
+     }
+     &:focus{
+       outline: 2px solid rgb(59 130 246);
+     }
+    }
+    .end-report-field-textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+  }
+}
+
+.challenges-faced {
+  margin-top: 1rem;
+  svg {
+    color: rgb(234 88 12) !important;
+  }
+}
+.challenges-card {
+  background-color: rgb(255 247 237) !important;
+  border-color: rgb(254 215 170) !important;
+  padding:14px !important;
+  .report-details{
+    color: rgb(225 127 14) !important;
+  }
+}

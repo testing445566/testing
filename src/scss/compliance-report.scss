@@ -1,0 +1,91 @@
+.compliance-report-date-select {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 35px;
+  .input-fileds {
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    gap: 20px;
+    label {
+      input[type="date"] {
+        padding: 8px;
+        outline: none;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+          rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        border-radius: 5px;
+      }
+      padding-bottom: 10px;
+    }
+    .select-date {
+      font-size: 13px;
+      font-weight: 600;
+      input {
+        width: 100%;
+        margin-top: 10px;
+      }
+      padding-bottom: 0px;
+    }
+  }
+  button {
+    border: none;
+    outline: none;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    cursor: pointer;
+    padding: 8px 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    gap: 5px;
+  }
+}
+
+.missing-reports {
+  background-color: rgb(254 226 226);
+  color: rgb(153 27 27);
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 2rem;
+}
+
+.submit-reports {
+  color: rgb(6 95 70);
+  background-color: rgb(209 250 229);
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 2rem;
+}
+
+.submission-time {
+  color: rgb(107 114 128);
+}
+
+.employee-name {
+  .name {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgb(17 24 39);
+  }
+  .email {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgb(107 114 128);
+  }
+}

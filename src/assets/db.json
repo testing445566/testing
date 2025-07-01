@@ -1,0 +1,152 @@
+{
+  "users": [
+    {
+      "id": "22e8",
+      "name": "System Administrator",
+      "email": "admin@gmail.com",
+      "role": "admin",
+      "department": "IT",
+      "position": "Administrator",
+      "phone": 1234567890,
+      "password": "Admin@123",
+      "isActive": true,
+      "createdAt": "27/6/2025",
+      "master": true
+    },
+    {
+      "id": "2b93",
+      "name": "kevin",
+      "email": "kevin@gmail.com",
+      "role": "employee",
+      "department": "IT",
+      "position": "Administator",
+      "phone": 9016046583,
+      "password": "Kevin@123",
+      "isActive": false,
+      "createdAt": "30/6/2025",
+      "master": false
+    },
+    {
+      "id": "1060",
+      "name": "Mayur",
+      "email": "kevin1@test.com",
+      "role": "employee",
+      "department": "IT",
+      "position": "erererer",
+      "phone": 9016046583,
+      "password": "Test@123",
+      "isActive": false,
+      "createdAt": "30/6/2025",
+      "master": false
+    },
+    {
+      "id": "13f4",
+      "name": "John Doe",
+      "email": "john.doe@company.com",
+      "role": "employee",
+      "department": "Engineering",
+      "position": "Software Developer",
+      "phone": 9016046525,
+      "password": "Test@123",
+      "isActive": false,
+      "createdAt": "30/6/2025",
+      "master": false
+    }
+  ],
+  "taskPlannReports": [
+    {
+      "id": "366c",
+      "updatedAt": "2025-06-30T10:09:52.386Z",
+      "createdAt": "2025-06-30T10:05:59.219Z",
+      "date": "30/6/2025",
+      "editCount": 0,
+      "tasks": [
+        "test"
+      ],
+      "userId": "2b93"
+    },
+    {
+      "id": "366c",
+      "updatedAt": "2025-06-29T10:09:52.386Z",
+      "createdAt": "2025-06-29T10:05:59.219Z",
+      "date": "29/6/2025",
+      "editCount": 0,
+      "tasks": [
+        "test"
+      ],
+      "userId": "2b93"
+    },
+    {
+      "id": "366c",
+      "updatedAt": "2025-06-28T10:09:52.386Z",
+      "createdAt": "2025-06-28T10:05:59.219Z",
+      "date": "28/6/2025",
+      "editCount": 0,
+      "tasks": [
+        "test"
+      ],
+      "userId": "2b93"
+    },
+    {
+      "id": "be1e",
+      "updatedAt": "2025-06-30T10:14:07.554Z",
+      "createdAt": "2025-06-30T10:12:19.105Z",
+      "date": "30/6/2025",
+      "editCount": 0,
+      "tasks": [
+        "test"
+      ],
+      "userId": "1060"
+    }
+  ],
+  "eodReports": [
+    {
+      "id": "4f5a",
+      "challenges": "no ",
+      "completedTasks": [
+        "test"
+      ],
+      "date": "30/6/2025",
+      "editCount": 0,
+      "updatedAt": "2025-06-30T10:11:48.170Z",
+      "userId": "2b93",
+      "workingHours": 8,
+      "createdAt": "2025-06-30T10:11:24.884Z"
+    },
+    {
+      "id": "4f5a",
+      "challenges": "no ",
+      "completedTasks": [
+        "test"
+      ],
+      "date": "27/6/2025",
+      "editCount": 0,
+      "updatedAt": "2025-06-27T10:11:48.170Z",
+      "userId": "2b93",
+      "workingHours": 8,
+      "createdAt": "2025-06-27T10:11:24.884Z"
+    },
+    {
+      "id": "decf",
+      "challenges": "nooo",
+      "completedTasks": [
+        "test",
+        "test",
+        "test",
+        "test",
+        "test",
+        "test",
+        "test",
+        "test",
+        "test",
+        "test"
+      ],
+      "date": "30/6/2025",
+      "editCount": 0,
+      "updatedAt": "2025-06-30T10:14:56.954Z",
+      "userId": "1060",
+      "workingHours": 8,
+      "createdAt": "2025-06-30T10:12:19.105Z"
+    }
+  ]
+}

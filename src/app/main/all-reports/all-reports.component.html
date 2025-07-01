@@ -1,0 +1,592 @@
+<section>
+  <div class="common-page-heding-font">
+    <h1 class="heading">All Reports</h1>
+    <p class="sub-heading">
+      View and analyze all employee reports with advanced filtering
+    </p>
+  </div>
+
+  <div class="filter-menu">
+    <div class="all-report-filtering">
+      <label for="formDate">
+        Form Date
+        <input
+          type="date"
+          name="toDate"
+          id="toDate"
+          [max]="curentDate"
+          #formDate
+          [value]="curentDate"
+          (change)="getReports()"
+        />
+      </label>
+      <label for="toDate">
+        To Date
+        <input
+          type="date"
+          #toDate
+          name="formDate"
+          id="formDate"
+          [min]="formDate.value || curentDate"
+          [max]="curentDate"
+          (change)="getReports()"
+        />
+      </label>
+
+      <div class="select-filter">
+        Employee
+        <select
+          name="emplloyee"
+          id="emplloyee"
+          (change)="getReports()"
+          #selectEmployee
+        >
+          <option selected value="all">All Employee</option>
+          <ng-container *ngFor="let name of employessName">
+            <option [value]="name">{{ name }}</option>
+          </ng-container>
+        </select>
+      </div>
+
+      <div class="select-filter">
+        Report Type
+        <select
+          #reportType
+          name="report-type"
+          (change)="getReports()"
+          id="report-type"
+        >
+          <option selected value="all">All Reports</option>
+          <option value="EOD Report">EOD Reports</option>
+          <option value="Planned Tasks">Planned Tasks</option>
+        </select>
+      </div>
+    </div>
+    <div class="searching-reports">
+      <label for="search">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="20"
+          color="#9ca3af"
+          fill="none"
+        >
+          <path
+            d="M17 17L21 21"
+            stroke="#9ca3af"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <path
+            d="M19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11Z"
+            stroke="#9ca3af"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+        <input
+          type="text"
+          id="search"
+          #search
+          (input)="getReports(search.value)"
+          placeholder="Search reports, employees, tasks..."
+        />
+      </label>
+      <button (click)="downloadCsvFile()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="20"
+          color="#68707c"
+          fill="none"
+        >
+          <path
+            d="M12 14.5L12 4.5M12 14.5C11.2998 14.5 9.99153 12.5057 9.5 12M12 14.5C12.7002 14.5 14.0085 12.5057 14.5 12"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M20 16.5C20 18.982 19.482 19.5 17 19.5H7C4.518 19.5 4 18.982 4 16.5"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        Export CSV
+      </button>
+    </div>
+  </div>
+
+  <section class="dashboard-card">
+    <div class="common-small-card">
+      <div class="small-card-svg-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-file-text h-8 w-8 text-blue-600 primary-color"
+        >
+          <path
+            d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+          ></path>
+          <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+          <path d="M10 9H8"></path>
+          <path d="M16 13H8"></path>
+          <path d="M16 17H8"></path>
+        </svg>
+      </div>
+      <div class="small-card-details">
+        <p class="small-card-heading">Total Reports</p>
+        <p class="small-card-sub-admin-heading">{{ totalReports }}</p>
+      </div>
+    </div>
+    <div class="common-small-card">
+      <div class="small-card-svg-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-check-circle h-8 w-8 text-gray-400 success-color"
+        >
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <path d="m9 11 3 3L22 4"></path>
+        </svg>
+      </div>
+      <div class="small-card-details">
+        <p class="small-card-heading">EOD Reports</p>
+        <p class="small-card-sub-admin-heading">{{ eodReports }}</p>
+      </div>
+    </div>
+    <div class="common-small-card">
+      <div class="small-card-svg-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-target h-8 w-8 text-indigo-600 purple-color"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <circle cx="12" cy="12" r="6"></circle>
+          <circle cx="12" cy="12" r="2"></circle>
+        </svg>
+      </div>
+      <div class="small-card-details">
+        <p class="small-card-heading">Planned Tasks</p>
+        <p class="small-card-sub-admin-heading">{{ plannTasks }}</p>
+      </div>
+    </div>
+    <div class="common-small-card">
+      <div class="small-card-svg-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-users h-8 w-8 text-purple-600 user-active-color"
+        >
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+      </div>
+      <div class="small-card-details">
+        <p class="small-card-heading">Active Employees</p>
+        <p class="small-card-sub-admin-heading">{{ activeEmployess }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="all-report-card-header">
+      <div class="card-header">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-filter h-5 w-5 mr-2"
+        >
+          <polygon
+            points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"
+          ></polygon>
+        </svg>
+        <h4>Reports ({{ showReports.length }})</h4>
+      </div>
+      <div class="show-user-reports">
+        <ng-container *ngFor="let report of showReports; let last = last">
+          <div
+            class="reports-card"
+            [ngClass]="last ? 'border-bottom' : ''"
+            *ngIf="report.type === 'Planned Tasks'"
+          >
+            <div
+              class="report-card"
+              (click)="toggelButton(countCard, plannSvg)"
+            >
+              <div class="user-reports-details">
+                <div class="svg-icon plann-svg">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-target h-5 w-5 text-blue-600"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="6"></circle>
+                    <circle cx="12" cy="12" r="2"></circle>
+                  </svg>
+                </div>
+                <div class="report-details">
+                  <div class="user-name">
+                    <h5>{{ report.name }}</h5>
+                    <span class="plann-task-report">{{ report.type }}</span>
+                  </div>
+                  <p>
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="15"
+                        color="#a2a7af"
+                        fill="none"
+                      >
+                        <path
+                          d="M16 2V6M8 2V6"
+                          stroke="#a2a7af"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M13 4H11C7.22876 4 5.34315 4 4.17157 5.17157C3 6.34315 3 8.22876 3 12V14C3 17.7712 3 19.6569 4.17157 20.8284C5.34315 22 7.22876 22 11 22H13C16.7712 22 18.6569 22 19.8284 20.8284C21 19.6569 21 17.7712 21 14V12C21 8.22876 21 6.34315 19.8284 5.17157C18.6569 4 16.7712 4 13 4Z"
+                          stroke="#a2a7af"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M3 10H21"
+                          stroke="#a2a7af"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                      {{ report.date }}
+                    </span>
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="15"
+                        color="#a2a7af"
+                        fill="none"
+                      >
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="#a2a7af"
+                          stroke-width="1.5"
+                        ></circle>
+                        <path
+                          d="M12 8V12L14 14"
+                          stroke="#a2a7af"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                      {{ report.createdAt }}
+                    </span>
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="15"
+                        color="#a2a7af"
+                        fill="none"
+                      >
+                        <path
+                          d="M21 13.8829L20.9999 9.12817C20.9993 7.99289 20.999 7.42525 20.723 6.94931C20.447 6.47337 19.9544 6.19544 18.9692 5.63957L13.944 2.80421C12.9938 2.26807 12.5187 2 12 2C11.4813 2 11.0062 2.26807 10.056 2.80421L5.0308 5.63957C4.04562 6.19544 3.55303 6.47337 3.277 6.94931C3.00096 7.42525 3.00069 7.99289 3.00013 9.12817L3 13.8829C3 17.7094 3 19.6226 4.17157 20.8113C5.34315 22 7.22876 22 11 22H13C16.7712 22 18.6569 22 19.8284 20.8113C21 19.6226 21 17.7094 21 13.8829Z"
+                          stroke="#a2a7af"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                        ></path>
+                        <path
+                          d="M10 13H8M16 13H14M10 9H8M10 17H8M16 9H14M16 17H14"
+                          stroke="#a2a7af"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                        ></path>
+                      </svg>
+                      {{ report.department }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div class="report-count">
+                <div class="report-count-details">
+                  <p>{{ report.tasks.length }} tasks planned</p>
+                  <span>Edit count: {{ report.editCount }}</span>
+                </div>
+                <div class="svg-icon">
+                  <svg
+                    #plannSvg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="injected-svg"
+                    data-src="https://cdn.hugeicons.com/icons/arrow-down-01-stroke-sharp.svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    role="img"
+                    color="#9ca3af"
+                  >
+                    <path
+                      d="M5.99977 9.00005L11.9998 15L17.9998 9"
+                      stroke="#9ca3af"
+                      stroke-width="1.5"
+                      stroke-miterlimit="16"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="report-task-details" #countCard>
+              <p class="report-task-details-heading">Planned Tasks</p>
+              <ul>
+                <li *ngFor="let task of report.tasks">{{ task }}</li>
+              </ul>
+              <div class="task-count">
+                <p>Tasks Planned: {{ report.tasks.length }}</p>
+                <span> Edit Count: {{ report.editCount }}/3 </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="reports-card"
+            [ngClass]="last ? 'border-bottom' : ''"
+            *ngIf="report.type === 'EOD Report'"
+          >
+            <div class="report-card" (click)="toggelButton(eodCard, svg)">
+              <div class="user-reports-details">
+                <div class="svg-icon eod-svg">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-check-circle h-5 w-5 text-emerald-600 eod-svg"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <path d="m9 11 3 3L22 4"></path>
+                  </svg>
+                </div>
+                <div class="report-details">
+                  <div class="user-name">
+                    <h5>{{ report.name }}</h5>
+                    <span class="eod-report">{{ report.type }}</span>
+                  </div>
+                  <p>
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="15"
+                        color="#a2a7af"
+                        fill="none"
+                      >
+                        <path
+                          d="M16 2V6M8 2V6"
+                          stroke="#a2a7af"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M13 4H11C7.22876 4 5.34315 4 4.17157 5.17157C3 6.34315 3 8.22876 3 12V14C3 17.7712 3 19.6569 4.17157 20.8284C5.34315 22 7.22876 22 11 22H13C16.7712 22 18.6569 22 19.8284 20.8284C21 19.6569 21 17.7712 21 14V12C21 8.22876 21 6.34315 19.8284 5.17157C18.6569 4 16.7712 4 13 4Z"
+                          stroke="#a2a7af"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M3 10H21"
+                          stroke="#a2a7af"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                      {{ report.date }}
+                    </span>
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="15"
+                        color="#a2a7af"
+                        fill="none"
+                      >
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="#a2a7af"
+                          stroke-width="1.5"
+                        ></circle>
+                        <path
+                          d="M12 8V12L14 14"
+                          stroke="#a2a7af"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                      {{ report.createdAt }}
+                    </span>
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="15"
+                        color="#a2a7af"
+                        fill="none"
+                      >
+                        <path
+                          d="M21 13.8829L20.9999 9.12817C20.9993 7.99289 20.999 7.42525 20.723 6.94931C20.447 6.47337 19.9544 6.19544 18.9692 5.63957L13.944 2.80421C12.9938 2.26807 12.5187 2 12 2C11.4813 2 11.0062 2.26807 10.056 2.80421L5.0308 5.63957C4.04562 6.19544 3.55303 6.47337 3.277 6.94931C3.00096 7.42525 3.00069 7.99289 3.00013 9.12817L3 13.8829C3 17.7094 3 19.6226 4.17157 20.8113C5.34315 22 7.22876 22 11 22H13C16.7712 22 18.6569 22 19.8284 20.8113C21 19.6226 21 17.7094 21 13.8829Z"
+                          stroke="#a2a7af"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                        ></path>
+                        <path
+                          d="M10 13H8M16 13H14M10 9H8M10 17H8M16 9H14M16 17H14"
+                          stroke="#a2a7af"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                        ></path>
+                      </svg>
+                      {{ report.department }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div class="report-count">
+                <div class="report-count-details">
+                  <p>{{ report.workingHours || "-" }}h worked</p>
+                  <span>{{ report.completedTasks.length }} tasks</span>
+                </div>
+                <div class="svg-icon">
+                  <svg
+                    #svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="injected-svg"
+                    data-src="https://cdn.hugeicons.com/icons/arrow-down-01-stroke-sharp.svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    role="img"
+                    color="#9ca3af"
+                  >
+                    <path
+                      d="M5.99977 9.00005L11.9998 15L17.9998 9"
+                      stroke="#9ca3af"
+                      stroke-width="1.5"
+                      stroke-miterlimit="16"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="report-task-details" #eodCard>
+              <p class="report-task-details-heading">Completed Tasks</p>
+              <ul>
+                <li *ngFor="let completedTasks of report.completedTasks">
+                  {{ completedTasks }}
+                </li>
+              </ul>
+              <p
+                class="report-task-details-heading"
+                *ngIf="report.challenges.trim()"
+              >
+                Challenges
+              </p>
+              <p class="chalanges-details" *ngIf="report.challenges.trim()">
+                {{ report.challenges }}
+              </p>
+              <div class="task-count">
+                <p>Working Hours: {{ report.workingHours || "-" }}h</p>
+                <span>Edit Count: {{ report.editCount }}/3 </span>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <div class="all-reports-not-found-data" *ngIf="showReports.length < 1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#d1d5db"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-file-text h-12 w-12 mx-auto mb-3 text-gray-300"
+          >
+            <path
+              d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+            ></path>
+            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+            <path d="M10 9H8"></path>
+            <path d="M16 13H8"></path>
+            <path d="M16 17H8"></path>
+          </svg>
+          <p>No reports found for the selected criteria</p>
+          <p>Try adjusting your filters or date range</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

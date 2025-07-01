@@ -1,0 +1,178 @@
+.none-flex {
+  display: block !important;
+  padding: 1rem !important;
+  text-align: center;
+  .small-card-svg-icon {
+    margin: 5px auto;
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+  .small-card-details {
+    .small-card-sub-admin-heading {
+      font-weight: 700 !important;
+      font-size: 1.25rem !important;
+      line-height: 1.75rem !important;
+    }
+  }
+}
+
+.table-detail-tr {
+  .table-td {
+    padding: 0px !important;
+    .detail-container {
+      height: 0px;
+      overflow: hidden;
+      transition: all 0.25s;
+      padding: 0px;
+      display: flex;
+      align-items: start;
+      justify-content: start;
+      gap: 1.5rem;
+      background-color: rgb(249 250 251);
+      border-color: #e5e7eb;
+      .my-report-details {
+        width: 100%;
+        .report-type {
+          display: flex;
+          align-items: center;
+          justify-content: start;
+          gap: 5px;
+          margin-bottom: 0.75rem;
+          .report-type-svg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .plan-icon {
+              color: rgb(37 99 235);
+            }
+            .eod-icon {
+              color: rgb(5 150 105);
+            }
+          }
+          .report-heading {
+            font-weight: 500;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: rgb(17 24 39);
+          }
+        }
+
+        .report-list {
+          .list {
+            list-style-position: inside;
+            --tw-text-opacity: 1;
+            color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+          }
+        }
+        .report-details-sub-heading {
+          font-size: 0.75rem;
+          line-height: 1rem;
+          margin-top: 0.5rem;
+          padding-top: 0.5rem;
+          color: rgb(107 114 128);
+          border-top: 1px solid rgb(229 231 235);
+        }
+        .main-list {
+          font-weight: 500;
+          font-size: 0.75rem;
+          line-height: 1rem;
+          margin-bottom: 0.25rem;
+          color: rgb(55 65 81);
+        }
+        .challenges-container {
+          margin-top: 0.75rem;
+        }
+        .challenges {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+          color: rgb(75 85 99);
+        }
+        .not-found {
+          font-style: italic;
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+          color: rgb(107 114 128);
+        }
+      }
+    }
+  }
+}
+
+.my-report-show-details-button {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.25rem;
+  color: rgb(37 99 235);
+  font-weight: 500;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.border-bottom {
+  border-bottom: none !important;
+}
+
+.table-report-status {
+  span {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+    svg {
+      color: rgb(5 150 105);
+    }
+  }
+  .no-submited {
+    color: rgb(107 114 128);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    svg {
+      color: rgb(156 163 175);
+    }
+  }
+}
+.my-report-status {
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 2rem;
+}
+.completed-role {
+  background-color: rgb(209 250 229);
+  color: rgb(6 95 70);
+}
+.partial-role {
+  background-color: rgb(219 234 254);
+  color: rgb(30 64 175);
+}
+
+.my-report-table-heading {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+.my-report-caption-top {
+  justify-content: space-between !important;
+  .show-date {
+    color: rgb(107 114 128);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+.may-report-card{
+  flex-basis: 150px !important;
+flex-grow: 1 !important;
+}

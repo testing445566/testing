@@ -1,0 +1,93 @@
+.user-Profile {
+  margin-top: 35px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+
+  .user-details {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid $progressBgcolor;
+    .profile-icon {
+      width: 60px;
+      height: 60px;
+      background-color: #d1d5db;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      border-radius: 50%;
+    }
+    .user-name {
+      h3 {
+        font-size: 19px;
+      }
+      p {
+        font-size: 13px;
+        color: $commonTextColor;
+      }
+    }
+  }
+  .profile-field {
+    margin-top: 30px;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .input-fields {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        gap: 20px;
+        margin: 0px 0px;
+        flex-wrap: wrap;
+        .input-fields-group {
+          width: 100%;
+          flex-basis: 300px;
+          flex-grow: 1;
+          label {
+            display: block;
+            width: 100%;
+            span {
+              display: flex;
+              justify-content: start;
+              align-items: center;
+              gap: $commonGap;
+              font-size: $fontSize;
+              font-weight: $fontWeightNormal;
+              color: $commonSubHeadingColor;
+            }
+
+            input {
+              width: 100%;
+              box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+                rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+              border: none;
+              outline: none;
+              padding: 12px;
+              border-radius: 5px;
+              margin-top: 10px;
+              &:active {
+                outline: 2px solid rgb(59 130 246);
+              }
+              &:focus {
+                outline: 2px solid rgb(59 130 246);
+              }
+            }
+          }
+        }
+        .profile-validation {
+          font-size: $subFontSize;
+          margin-top: 10px;
+          font-weight: $fontWeightNormal;
+          color: $redColor;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,148 @@
+<div class="sign-up-container">
+  <form [formGroup]="signIn" class="sign-up-form">
+    <div class="sign-in-icone">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-log-in h-8 w-8 text-blue-600"
+      >
+        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+        <polyline points="10 17 15 12 10 7"></polyline>
+        <line x1="15" x2="3" y1="12" y2="12"></line>
+      </svg>
+    </div>
+    <h1 class="sign-in-heading">Welocome Back</h1>
+    <p class="sign-in-details">Sign in to your account</p>
+
+    <div class="sign-in-fields">
+      <div class="sign-in-field">
+        <span class="input-field-name">Email Address</span>
+        <div class="input-field">
+          <label for="email" class="label-icone">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="22"
+              height="24"
+              color="#000000"
+              fill="none"
+            >
+              <path
+                d="M18.5 20V17.9704C18.5 16.7281 17.9407 15.5099 16.8103 14.9946C15.4315 14.3661 13.7779 14 12 14C10.2221 14 8.5685 14.3661 7.18968 14.9946C6.05927 15.5099 5.5 16.7281 5.5 17.9704V20"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <circle
+                cx="12"
+                cy="7.5"
+                r="3.5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            #email
+            placeholder="Enter your email"
+            formControlName="email"
+          />
+        </div>
+        <div
+          class="message-validation"
+          *ngIf="
+            form['email'].errors &&
+            (form['email'].touched || form['email'].dirty || submit)
+          "
+        >
+          <span *ngIf="form['email'].errors['required']"
+            >Email is required.</span
+          >
+          <span *ngIf="form['email'].errors['email']"
+            >Please enter valid formet email.</span
+          >
+        </div>
+      </div>
+      <div class="sign-in-field">
+        <span class="input-field-name">Password</span>
+        <div class="input-field">
+          <label for="password" class="label-icone">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="22"
+              height="24"
+              color="#000000"
+              fill="none"
+            >
+              <path
+                d="M12 16.5V14.5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                d="M4.2678 18.8447C4.49268 20.515 5.87612 21.8235 7.55965 21.9009C8.97626 21.966 10.4153 22 12 22C13.5847 22 15.0237 21.966 16.4403 21.9009C18.1239 21.8235 19.5073 20.515 19.7322 18.8447C19.8789 17.7547 20 16.6376 20 15.5C20 14.3624 19.8789 13.2453 19.7322 12.1553C19.5073 10.485 18.1239 9.17649 16.4403 9.09909C15.0237 9.03397 13.5847 9 12 9C10.4153 9 8.97626 9.03397 7.55965 9.09909C5.87612 9.17649 4.49268 10.485 4.2678 12.1553C4.12104 13.2453 3.99999 14.3624 3.99999 15.5C3.99999 16.6376 4.12104 17.7547 4.2678 18.8447Z"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <path
+                d="M7.5 9V6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5V9"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            #password
+            formControlName="password"
+            placeholder="Enter your password"
+          />
+        </div>
+        <div
+          class="message-validation"
+          *ngIf="
+            form['password'].errors &&
+            (form['password'].touched || form['password'].dirty || submit)
+          "
+        >
+          <span *ngIf="form['password'].errors['required']"
+            >Password is required.</span
+          >
+          <span *ngIf="form['password'].errors['pattern']"
+            >Please enter password.</span
+          >
+        </div>
+      </div>
+      <button class="sign-in-button" (click)="userLogin()">Sign In</button>
+    </div>
+    <div class="demo-acounts">
+      <span>Demo Accounts:</span>
+      <div>
+        <button class="admin-button" (click)="setDemoUser('admin')">
+          Admin Demo
+        </button>
+        <button class="employee-button" (click)="setDemoUser('user')">
+          Employee Demo
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

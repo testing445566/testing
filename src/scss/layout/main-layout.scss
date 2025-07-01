@@ -1,0 +1,19 @@
+.main-layout {
+  max-width: 80rem;
+  margin: auto;
+  width: 100%;
+  .main-outlet {
+    width: 100%;
+    margin-top: 4.375rem;
+    padding: $mainLayoutPading;
+    overflow-x: hidden;
+  }
+}
+
+@media (width < 1080px) {
+  .main-layout {
+    .main-outlet {
+      margin-top: 13.375rem;
+    }
+  }
+}

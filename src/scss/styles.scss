@@ -1,0 +1,62 @@
+@use "node_modules/@ngneat/hot-toast/src/styles/styles.scss";
+@import "./vaiable";
+@import "./common-scss.scss";
+@import "./sign-in.scss";
+@import "./header.scss";
+@import "./dashboard.scss";
+@import "./user-management.scss";
+@import "./compliance-report.scss";
+@import "./all-reports.scss";
+@import "./my-report.scss";
+@import "./profile.scss";
+@import "./end-of-day.scss";
+@import "./layout/main-layout.scss";
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "system-ui";
+}
+
+::-webkit-inner-spin-button {
+  display: none;
+}
+
+body {
+  background-color: #f9fafb;
+}
+.deseble-button {
+  background-color: rgb(149, 180, 248) !important;
+  cursor: no-drop !important;
+}
+.border-none {
+  border: none !important;
+}
+
+.success-svg {
+  color: #059669;
+}
+
+input[type="date"] {
+  &:focus {
+    outline: 2px solid #3b82f6 !important;
+  }
+}
+
+select {
+  &:focus {
+    outline: 2px solid #3b82f6 !important;
+  }
+}
+
+section {
+  width: 100%;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.search-input:hover .search-label {
+  border: 2px solid #3b82f6 !important;
+}

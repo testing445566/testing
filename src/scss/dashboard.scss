@@ -1,0 +1,114 @@
+
+.dashboard-card {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+
+.summary-section {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  gap: 2rem;
+  flex-wrap:wrap;
+}
+.weekly-summary-report {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.weekly-proress {
+  width: 100%;
+  .progress-percentage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span {
+      font-size: 13px;
+      color: $commonTextColor;
+    }
+    p {
+      font-size: 13px;
+      color: $commonTextColor;
+    }
+  }
+  .progress-bar {
+    margin-top: 5px;
+    width: 100%;
+    height: 10px;
+    background-color: $progressBgcolor;
+    border-radius: 2rem;
+  }
+  .progress-width {
+    background-color: blue;
+    border-radius: 2rem;
+    height: -webkit-fill-available;
+  }
+}
+
+.recent-activity {
+  display: flex;
+  flex-direction: column;
+  gap: $resentActivetyListCardGap;
+  .recent-activity-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9fafb;
+    padding: $resentActivetyListCardPaddingY $resentActivetyListCardPaddingX;
+    border-radius: 5px;
+    flex-wrap: wrap;
+    .recent-activity-icon {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      .recent-activity-svg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $disebleSvgIconColor;
+      }
+      .recent-activity-user-detail {
+        .recent-activity-name {
+          font-weight: $fontWeightNormal;
+          font-size: $fontSize;
+        }
+        .end-of-day-report-user {
+          color: $commonTextColor;
+          font-size: $subFontSize;
+        }
+      }
+    }
+    .recent-activity-time {
+      .time {
+        font-size: $fontSize;
+        text-align: end;
+        color: $commonBlackColor;
+      }
+      p {
+        text-align: end;
+        color: $commonTextColor;
+        font-size: $subFontSize;
+      }
+    }
+  }
+  .no-activity-found {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    p {
+      color: $commonTextColor;
+      padding: 15px 0 30px 0px;
+    }
+  }
+}
+
+.marging-bottom{
+  margin-bottom: 5px;
+}

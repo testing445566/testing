@@ -1,0 +1,169 @@
+$bodyBgColor: rgb(249 250 251);
+$disebleSvgIconColor: rgb(156 163 175);
+$mainLayoutPading: 2rem;
+
+// common heading color
+$commonHeadingColor: rgb(17 24 39);
+$commonWhiteColor: white;
+$commonSubHeadingColor: rgb(75 85 99);
+$commonBorderColor: rgb(229 231 235);
+
+$commonButtonPadding: 0.5rem 1rem;
+$commonBorderRadius: 0.5rem;
+$commonMargingTop: 1rem;
+$commonSubmitButtonPadding: 0.75rem 1.5rem;
+$commonSubmitButtonBgColor: rgb(37 99 235);
+// common
+$commonTextColor: #838298;
+$fontSize: 0.875rem;
+$subFontSize: 0.75rem;
+$borderWidth: 1px;
+$fontWeightNormal: 500;
+$commonBlackColor: black;
+$commonGap: 0.5rem;
+
+// card Styles
+$cardPadding: 1.5rem;
+$cardHeadingColor: rgb(17 24 39 / var(--tw-text-opacity, 1));
+$cardBorderColor: rgb(229 231 235);
+$cardHeadingMargingBottom: 1rem;
+$cardHeadingFontWeight: 600;
+$cardHeadingFontSize: 1.125rem;
+$cardBgColor: rgb(255 255 255);
+$cardBorderRadius: 0.75rem;
+
+// small card
+$smallCardHeadingColor: rgb(107 114 128);
+$smallCardHeadingFontWeight: 500;
+$smallCardSubHeadingFontWeight: 600;
+$smallCardSubHeadingAdminFontWeight: 600;
+$smallCardSubHeadingFontSize: 1.125rem;
+$smallCardSubHeadingFontSize: 1.125rem;
+$smallCardSvgDetalilsGap: 1rem;
+
+// alert
+$alertPadding: 1rem;
+$alertGap: 1rem;
+$alertHeadingFontWeight: 500;
+$alertBorderRadius: 0.5rem;
+
+// primary alert
+$primaryAlertSvgIconColor: rgb(37 99 235);
+$primaryAlertBgColor: rgb(239 246 255);
+$primaryAlertFontColor: rgb(30 64 175);
+$primaryAlertSubFontColor: rgb(37 99 235);
+$primaryAlertBorderColor: rgb(191 219 254);
+$primaryAlertAdminBorderColor: rgb(37 99 235);
+
+// yellow alert
+$yellowAlertSvgIconColor: rgb(202 138 4);
+$yellowAlertBgColor: rgb(254 252 232);
+$yellowAlertFontColor: rgb(133 77 14);
+$yellowAlertSubFontColor: rgb(202 138 4);
+$yellowAlertBorderColor: rgb(254 240 138);
+$yellowAlertAdminBorderColor: rgb(202 138 4);
+
+// success alert
+$successAlertSvgIconColor: rgb(5 150 105);
+$successAlertBgColor: rgb(236 253 245);
+$successAlertFontColor: rgb(6 95 70);
+$successAlertSubFontColor: rgb(5 150 105);
+$successAlertBorderColor: rgb(167 243 208);
+$successAlertAdminBorderColor: rgb(202 138 4);
+
+// danger alert
+$dangerAlertSvgIconColor: rgb(220 38 38);
+$dangerAlertBgColor: rgb(254 242 242);
+$dangerAlertFontColor: rgb(220 38 38);
+$dangerAlertSubFontColor: rgb(220 38 38);
+$dangerAlertBorderColor: rgb(248 113 113);
+$dangerAlertAdminBorderColor: rgb(202 138 4);
+
+// weekly reports
+$weeklySumryColor: rgb(75 85 99);
+$weeklyReportSumryTextFontWeight: 600;
+$weeklyReportGap: 1rem;
+
+// progress bar
+$progressBarBgColoor: rgb(229 231 235);
+$progressBarWidth: 0.5rem;
+$prgressBarBorderRadius: 2rem;
+
+// dashboard resent activity
+$resentActivetyListCardGap: 0.75rem;
+$resentActivetyListCardPaddingX: 1rem;
+$resentActivetyListCardPaddingY: 0.75rem;
+
+// user report container
+$reportContainerMaxWidth: 56rem;
+$reportHeadingFontSize: 1.125rem;
+$reportHeadingFontWeight: 600;
+$reportCardPadding: 1.5rem;
+$reportSubHeadingFontSize: 0.875rem;
+$reportSuccessBgColor: #ecfdf5;
+$reportSvgIconBgColor: rgb(220 252 231);
+$reportSvgIconGap: 0.75rem;
+$reportSvgIconColor: rgb(22 163 74);
+$reportSvgIconPdding: 0.5rem;
+$reportSvgIconBorderRadius: 0.5rem;
+$reportTaskPlanEditButtonGap: 0.5rem;
+$reportTaskPlanEditButtonFontWeight: 500;
+$reportButtonFontLineHeight: 1.25rem;
+$reportEditButtonFontSize: 0.875rem;
+$reportTaskPlanEditButtonPaddingX: 1rem;
+$reportTaskPlanEditButtonPaddingY: 0.5rem;
+$reportEditButtonBorderRadius: 0.5rem;
+$reportTaskPlanEditButtonBgColor: rgb(219 234 254);
+$reportTaskPlanEditButtonColor: rgb(29 78 216);
+$reportEodEditButtonBgColor: rgb(243 232 255);
+$reportEodEditButtonColor: rgb(126 34 206);
+
+//-----show reports ----//
+$showReportListNumberHeightWidth: 1.5rem;
+$showReportListNumberFontSize: 0.875rem;
+$showReportListNumberBorderRadius: 2rem;
+$showReportTextFontsize: 1rem;
+$showReportPadding: 0.75rem;
+$showReportGap: 0.75rem;
+$showReportCardBorderRadius: 0.5rem;
+
+$showPlannTaskReportCardBgColor: rgb(249 250 251);
+$showPlanTaskReportCountColor: rgb(37 99 235);
+$showPlanTaskReportCountBgColor: rgb(219 234 254);
+
+$showReportEodCardBgColor: rgb(250 245 255);
+$showEodReportBorderColor: rgb(233 213 255);
+$showEodReportCountBgColor: rgb(243 232 255);
+$showEodReportCountColor: rgb(147 51 234);
+$showEodReportDetailsColor: rgb(88 28 135);
+
+$reportInputPadding: 0.75rem 1rem;
+$reportInputGap: 0.75rem;
+$reportInputBorderRaduis: 0.5rem;
+$reportInputFontSize: 1rem;
+$reportInputRemoveButtonPadding: 0.5rem;
+$reportInputRemoveButtonColor: rgb(220 38 38);
+$reportInputRemoveButtonHoverColor: rgb(153 27 27);
+$reportInputRemoveButtonHoverBgColor: rgb(254 242 242);
+
+$eodReportDetailsSvgColor: rgb(147 51 234);
+$eodReportHeadingFontWeight: 600;
+
+$eodTimeBgColor: rgb(219 234 254);
+$eodTimeSvgColor: rgb(37 99 235);
+$eodTimeBorderColor: rgb(191 219 254);
+$eodTimeTextColor: rgb(30 64 175);
+$eodTimePadding: 0.25rem 0.75rem;
+
+
+$boxshadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+  var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+
+$signInBgColor: hsl(223.85deg 100% 94.9%);
+$signInIconeBg: hsl(214.29deg 94.59% 92.75%);
+$signInIconeColor: hsl(221.01deg 83.26% 53.14%);
+$signInInputFieldIconeColor: hsl(227.14deg 18.67% 70.59%);
+$redColor: red;
+$signInDetailColor: hsl(226.5deg 18.02% 43.53%);
+$linksColor: #6b7282;
+$progressBgcolor: #e5e7eb;

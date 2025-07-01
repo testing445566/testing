@@ -1,0 +1,539 @@
+.common-page-heding-font {
+  .heading {
+    font-weight: 700;
+    color: $commonHeadingColor;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+  .sub-heading {
+    margin-top: 0.5rem;
+    color: $commonSubHeadingColor;
+  }
+}
+
+.common-container {
+  margin-top: 2rem;
+}
+
+.common-big-card {
+  padding: $cardPadding;
+  border: $borderWidth solid $commonBorderColor;
+  border-radius: $cardBorderRadius;
+  background-color: $cardBgColor;
+  width: 100%;
+  flex-basis: 37rem;
+  flex-grow: 1;
+  .card-heading {
+    margin-bottom: $cardHeadingMargingBottom;
+    font-weight: $cardHeadingFontWeight;
+    font-size: $cardHeadingFontSize;
+    color: $cardHeadingColor;
+  }
+}
+
+
+.common-small-card {
+  padding: $cardPadding;
+  border-radius: $cardBorderRadius;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: $smallCardSvgDetalilsGap;
+  background-color: $cardBgColor;
+  border: 1px solid $commonBorderColor;
+  width: 100%;
+  flex-basis:285px;
+  flex-grow: 1;
+  .small-card-svg-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    svg {
+      color: rgb(156 163 175);
+    }
+  }
+  .small-card-details {
+    .small-card-heading {
+      margin-bottom: 3px;
+      font-size: $fontSize;
+      font-weight: $smallCardHeadingFontWeight;
+      color: $smallCardHeadingColor;
+    }
+    .small-card-sub-heading {
+      font-size: $smallCardSubHeadingFontSize;
+      font-weight: $smallCardSubHeadingFontWeight;
+    }
+    .small-card-sub-admin-heading {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+  }
+}
+
+.common-alert-container {
+  display: flex;
+  flex-direction: column;
+  gap: $alertGap;
+}
+.common-alert {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: $smallCardSvgDetalilsGap;
+  padding: $alertPadding;
+  border-radius: $alertBorderRadius;
+  .alert-svg-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .common-alert-details {
+    .common-alert-heading {
+      font-size: $fontSize;
+      font-weight: $alertHeadingFontWeight;
+    }
+    .common-alert-sub-heading {
+      font-size: $subFontSize;
+    }
+  }
+}
+
+// success alert
+
+.user-success-alert {
+  border: 1px solid $successAlertBorderColor;
+  background-color: $successAlertBgColor;
+  .alert-svg-icon {
+    color: $successAlertSvgIconColor;
+  }
+  .common-alert-details {
+    .common-alert-heading {
+      color: $successAlertFontColor;
+    }
+    .common-alert-sub-heading {
+      color: $successAlertSubFontColor;
+    }
+  }
+  .admin-sub-details {
+    color: $successAlertSubFontColor;
+  }
+}
+
+// alert danger
+.user-danger-alert {
+  border: 1px solid $dangerAlertBorderColor;
+  background-color: $dangerAlertBgColor;
+  .alert-svg-icon {
+    color: $dangerAlertSvgIconColor;
+  }
+  .common-alert-details {
+    .common-alert-heading {
+      color: $dangerAlertFontColor;
+    }
+    .common-alert-sub-heading {
+      color: $dangerAlertSubFontColor;
+    }
+  }
+}
+
+// yellow alert
+.user-yellow-alert {
+  border: 1px solid $yellowAlertBorderColor;
+  background-color: $yellowAlertBgColor;
+  .alert-svg-icon {
+    color: $yellowAlertSvgIconColor;
+  }
+  .common-alert-details {
+    .common-alert-heading {
+      color: $yellowAlertFontColor;
+    }
+    .common-alert-sub-heading {
+      color: $yellowAlertSubFontColor;
+    }
+  }
+  .admin-sub-details {
+    color: $yellowAlertSubFontColor;
+  }
+}
+
+// primary alert
+
+.user-primary-alert {
+  border: 1px solid $primaryAlertBorderColor;
+  background-color: $primaryAlertBgColor;
+  .alert-svg-icon {
+    color: $primaryAlertSvgIconColor;
+  }
+  .common-alert-details {
+    .common-alert-heading {
+      color: $primaryAlertFontColor;
+    }
+    .common-alert-sub-heading {
+      color: $primaryAlertSubFontColor;
+    }
+  }
+  .admin-sub-details {
+    color: $primaryAlertSubFontColor;
+  }
+}
+
+// admin alert
+.common-admin-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $smallCardSvgDetalilsGap;
+  padding: 12px;
+  border-radius: $alertBorderRadius;
+  .alert-svg-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .common-alert-details {
+    .common-alert-heading {
+      font-size: $fontSize;
+      font-weight: $alertHeadingFontWeight;
+    }
+    .common-alert-sub-heading {
+      font-size: $subFontSize;
+    }
+  }
+  .admin-sub-details {
+    font-weight: 700;
+  }
+}
+.admin-card {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: $commonGap;
+}
+// common weekly reports
+
+.weekly-report-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $weeklyReportGap;
+  .weekly-report-heading {
+    font-size: $fontSize;
+    color: $weeklySumryColor;
+  }
+  .weekly-report-sub-heading {
+    font-size: $fontSize;
+    font-weight: $weeklyReportSumryTextFontWeight;
+  }
+}
+.admin-compliance-report {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .weekly-report-details-admin {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: $weeklyReportGap;
+    .weekly-report-heading {
+      font-size: $fontSize;
+      color: $weeklySumryColor;
+    }
+    .weekly-report-sub-heading {
+      font-size: $fontSize;
+      font-weight: $weeklyReportSumryTextFontWeight;
+    }
+  }
+  .admin-progess-report {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: $commonGap;
+    max-width: 150px;
+    width: 100%;
+    .common-progress-bar {
+      max-width: 200px;
+      .common-progress-bar-width {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.alert-border-none {
+  border: none !important;
+}
+
+.common-progress-bar {
+  width: 100%;
+  height: $progressBarWidth;
+  background-color: $progressBarBgColoor;
+  border-radius: $prgressBarBorderRadius;
+  overflow: hidden;
+  .common-progress-bar-width {
+    height: inherit;
+    height: $progressBarWidth;
+  }
+}
+
+.report-section,
+.profile-section {
+  max-width: $reportContainerMaxWidth;
+  margin: auto;
+}
+
+.reports-container {
+  border: $borderWidth solid $commonBorderColor;
+  background-color: $cardBgColor;
+  border-radius: $cardBorderRadius;
+  overflow: hidden;
+
+  .common-report-container {
+    padding: $reportCardPadding;
+    border-bottom: 1px solid $commonBorderColor;
+    background-color: $reportSuccessBgColor;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .report-edit-button-container {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: $reportSvgIconGap;
+      .report-common-svg-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: $reportSvgIconPdding;
+        background-color: $reportSvgIconBgColor;
+        border-radius: $reportSvgIconBorderRadius;
+        .report-svg-color {
+          color: $reportSvgIconColor;
+        }
+      }
+      .report-details {
+        .report-heading {
+          font-size: $reportHeadingFontSize;
+          font-weight: $reportHeadingFontWeight;
+        }
+        .report-sub-heading {
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          gap: 0.25rem;
+          font-size: $reportSubHeadingFontSize;
+          color: $commonSubHeadingColor;
+        }
+      }
+    }
+    .report-edit-button {
+      .edit-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        outline: none;
+        line-height: $reportButtonFontLineHeight;
+        font-size: $reportEditButtonFontSize;
+        border-radius: $reportEditButtonBorderRadius;
+        gap: $reportTaskPlanEditButtonGap;
+        padding: $reportTaskPlanEditButtonPaddingY
+          $reportTaskPlanEditButtonPaddingX;
+        font-weight: $reportTaskPlanEditButtonFontWeight;
+        cursor: pointer;
+      }
+    }
+  }
+  .task-plan-button {
+    color: $reportTaskPlanEditButtonColor;
+    background-color: $reportTaskPlanEditButtonBgColor;
+  }
+  .eod-report-button {
+    color: $reportEodEditButtonColor;
+    background-color: $reportEodEditButtonBgColor;
+  }
+
+  .show-reports-container {
+    padding: $reportCardPadding;
+    .reports-show {
+      display: flex;
+      flex-direction: column;
+      gap: $showReportGap;
+      .report-card {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: $showReportGap;
+        padding: $showReportPadding;
+        border-radius: $showReportCardBorderRadius;
+        .report-conter {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: $showReportListNumberHeightWidth;
+          min-width: $showReportListNumberHeightWidth;
+          font-size: $showReportListNumberFontSize;
+          font-weight: $fontWeightNormal;
+          border-radius: $showReportListNumberBorderRadius;
+        }
+        .report-details {
+          font-size: $showReportTextFontsize;
+          font-weight: $fontWeightNormal;
+          width: 100%;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}
+.task-report-show {
+  .report-card {
+    border: 1px solid transparent;
+    background-color: $showPlannTaskReportCardBgColor;
+    .report-conter {
+      color: $showPlanTaskReportCountColor;
+      background-color: $showPlanTaskReportCountBgColor;
+    }
+  }
+}
+.eod-report-show {
+  .report-card {
+    border: 1px solid $showEodReportBorderColor;
+    background-color: $showReportEodCardBgColor;
+    .report-conter {
+      color: $showEodReportCountColor;
+      background-color: $showEodReportCountBgColor;
+    }
+    .report-details {
+      color: $showEodReportDetailsColor;
+    }
+  }
+}
+
+.task-reports-fields {
+  .report-multipule-input-field {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: $reportInputGap;
+    margin: 0.75rem 0;
+    .common-report-input {
+      padding: $reportInputPadding;
+      border-radius: $reportInputBorderRaduis;
+      border: 1px solid $commonBorderColor;
+      width: 100%;
+      font-size: $reportInputFontSize;
+      &:active {
+        outline: 2px solid rgb(59 130 246);
+      }
+      &:focus {
+        outline: 2px solid rgb(59 130 246);
+      }
+    }
+    .reove-input-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: $reportInputRemoveButtonPadding;
+      border-radius: $commonBorderRadius;
+      outline: none;
+      border: none;
+      background-color: transparent;
+      color: $reportInputRemoveButtonColor;
+      transition: all 0.25s;
+      &:hover {
+        background-color: $reportInputRemoveButtonHoverBgColor;
+        color: $reportInputRemoveButtonHoverColor;
+      }
+    }
+  }
+  .add-input-button {
+    display: flex;
+    justify-content: start;
+    gap: 5px;
+    align-items: center;
+    border: 1px solid $commonBorderColor;
+    background-color: $commonWhiteColor;
+    padding: $commonButtonPadding;
+    border-radius: $commonBorderRadius;
+    margin-top: $commonMargingTop;
+    cursor: pointer;
+    font-size: $fontSize;
+    font-weight: $fontWeightNormal;
+    color: $commonSubHeadingColor;
+  }
+}
+
+.common-sbmit-button {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: $commonGap;
+  font-weight: $fontWeightNormal;
+  padding: $commonSubmitButtonPadding;
+  border: 2px solid $commonWhiteColor;
+  border-radius: $commonBorderRadius;
+  color: $commonWhiteColor;
+  background-color: $commonSubmitButtonBgColor;
+  transition: background-color 0.25s;
+  cursor: pointer;
+  &:focus {
+    outline: 2px solid #3b82f6 !important;
+  }
+  &:hover {
+    background-color: rgb(29 78 216) !important;
+    transform: scale(1.05);
+  }
+}
+
+.card-footer-container {
+  width: 100%;
+  height: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid $commonBorderColor;
+  margin-top: 2rem;
+  .card-footer-text {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: $commonGap;
+    color: $commonSubHeadingColor;
+    font-size: $fontSize;
+  }
+}
+
+.my-report-label {
+  .my-report-input {
+    padding: $reportInputPadding;
+  }
+}
+
+.primary-color {
+  color: rgb(37 99 235) !important;
+}
+
+.success-color {
+  color: rgb(5 150 105) !important;
+}
+
+.purple-color {
+  color: rgb(79 70 229) !important;
+}
+
+.yellow-color {
+  color: rgb(202 138 4) !important;
+}
+
+.red-color {
+  color: rgb(234 88 12) !important;
+}
+
+.user-active-color {
+  color: rgb(147 51 234) !important;
+}

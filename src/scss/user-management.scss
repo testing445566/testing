@@ -1,0 +1,285 @@
+.user-management-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 35px;
+  .management-search {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 5px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    background-color: white;
+    padding: 10px 10px;
+    border-radius: 5px;
+    width: 400px;
+    label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    input {
+      border: none;
+      outline: none;
+      font-size: 16px;
+      width: 100%;
+    }
+  }
+  .user-management-add-user-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    background-color: #2563eb;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 5px;
+    gap: 5px;
+    cursor: pointer;
+  }
+}
+
+.user-table-responsive {
+  margin-top: 20px;
+
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: auto;
+  .caption-top {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 5px;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid $progressBgcolor;
+    min-width: 500px;
+    h6 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+  }
+
+  .caption-top-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid $progressBgcolor;
+    min-width: 500px;
+    flex-wrap: wrap;
+    .caption-svg {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 1rem;
+      h6 {
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+    }
+    p {
+      color: rgb(107 114 128);
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+  }
+  .users-detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: auto;
+    thead {
+      border-bottom: 1px solid $progressBgcolor;
+      tr {
+        th {
+          font-size: 0.75rem;
+          padding: 12px 24px;
+          background-color: #f9fafb;
+          color: #717d95;
+          text-align: start;
+          font-weight: 500;
+        }
+        .table-thead-action {
+          text-align: end;
+        }
+      }
+    }
+    tbody {
+      tr {
+        border-bottom: 1px solid $progressBgcolor;
+        &:hover {
+          background-color: rgb(249 250 251) !important;
+        }
+        td {
+          padding: 16px 24px;
+          text-wrap: nowrap;
+          white-space: nowrap;
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+        }
+        .create-date {
+          color: rgb(107 114 128);
+        }
+        .role-card {
+          display: flex;
+          align-items: start;
+          justify-content: center;
+          flex-direction: column;
+          width: max-content;
+          padding: 4px 8px;
+          border-radius: 1rem;
+          font-weight: 600;
+          font-size: 0.75rem;
+          line-height: 1rem;
+          p {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 500;
+          }
+          span {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: $commonSubHeadingColor;
+            font-weight: 400;
+          }
+        }
+        .table-action-button {
+          display: flex;
+          justify-content: end;
+          align-items: center;
+          gap: 10px;
+          button {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            cursor: pointer;
+          }
+        }
+        .no-data-found {
+          padding: 15px;
+          text-align: center;
+          color: $commonTextColor;
+        }
+      }
+    }
+  }
+}
+.new-add-user {
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  h4 {
+    font-size: 17px;
+  }
+  .form-container {
+    margin-top: 20px;
+    .form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .input-fields-container {
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        gap: 15px;
+        flex-wrap: wrap;
+        .input-field {
+          width: 100%;
+          flex-basis: 400px;
+          flex-grow: 1;
+
+          span {
+            color: $commonTextColor;
+            font-size: 15px;
+          }
+          input {
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+              rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            &:focus {
+              outline: 2px solid #3b82f6 !important;
+            }
+          }
+        }
+        .roll-select {
+          box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+            rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+          border: none;
+          outline: none;
+          width: 100%;
+          padding: 10px;
+          border-radius: 5px;
+          margin-top: 10px;
+        }
+      }
+    }
+    .new-user-add-button {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: 10px;
+      margin-top: 30px;
+      button {
+        height: 35px;
+        padding: 5px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+          rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+      }
+    }
+  }
+}
+
+.admin-table-role {
+  color: #6b27af;
+  background-color: #f3e8ff;
+}
+.employee-table-role {
+  color: #274eb9;
+  background-color: #d9e9fe;
+}
+
+.save-button {
+  background-color: #2563eb;
+  color: white;
+}
+.cancel-button {
+  background-color: white;
+  color: black;
+}
+.display-none {
+  display: none;
+}
+
+.validaction-add-new-user {
+  span {
+    font-size: 13px !important;
+    color: red !important;
+  }
+}
+
+.button-outline {
+  outline: 2px solid #488af7 !important;
+  border: 1px solid white !important;
+}

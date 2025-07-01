@@ -1,0 +1,264 @@
+<section class="report-section">
+  <div class="common-page-heding-font">
+    <h1 class="heading">Plan Your Tasks</h1>
+    <p class="sub-heading">
+      Plan your tasks for today ({{ plannTaskReport.date }})
+    </p>
+  </div>
+
+  <div
+    class="common-alert common-container user-danger-alert"
+    *ngIf="editAlertShow"
+  >
+    <div class="alert-svg-icon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="20"
+        fill="none"
+      >
+        <circle
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          stroke-width="1.5"
+        ></circle>
+        <path
+          d="M12 8V12L14 14"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+      </svg>
+    </div>
+    <div class="common-alert-details">
+      <p class="common-alert-heading">
+        Edit Count: {{ plannTaskReport.editCount }}/3
+      </p>
+      <p class="common-alert-sub-heading">
+        You have reached the maximum number of edits for today.
+      </p>
+    </div>
+  </div>
+
+  <div
+    class="common-alert common-container user-success-alert"
+    *ngIf="successAlertShow"
+  >
+    <div class="alert-svg-icon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-check-circle h-5 w-5 text-green-600"
+      >
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <path d="m9 11 3 3L22 4"></path>
+      </svg>
+    </div>
+    <div class="common-alert-details">
+      <p class="common-alert-heading">Tasks updated successfully!</p>
+    </div>
+  </div>
+  <div
+    class="common-alert common-container user-danger-alert"
+    *ngIf="dangerAlertShow"
+  >
+    <div class="alert-svg-icon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-alert-circle h-5 w-5"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" x2="12" y1="8" y2="12"></line>
+        <line x1="12" x2="12.01" y1="16" y2="16"></line>
+      </svg>
+    </div>
+    <div class="common-alert-details">
+      <p class="common-alert-heading">Please add at least one task.</p>
+    </div>
+  </div>
+
+  <div class="common-container reports-container" *ngIf="showUpdateList">
+    <div class="common-report-container">
+      <div class="report-edit-button-container">
+        <div class="report-common-svg-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-check-circle h-5 w-5 text-green-600 report-svg-color"
+          >
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <path d="m9 11 3 3L22 4"></path>
+          </svg>
+        </div>
+        <div class="report-details">
+          <h2 class="report-heading">Today's Planned Tasks</h2>
+          <span class="report-sub-heading">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-clock h-3 w-3 mr-1"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            {{tasks.length}} task planned
+          </span>
+        </div>
+      </div>
+      <div class="report-edit-button">
+        <button
+          class="edit-button task-plan-button"
+          (click)="editPlanReport()"
+          [ngStyle]="{ display: plannTaskReport.editCount >= 3 ? 'none' : '' }"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-pen h-4 w-4 mr-2"
+          >
+            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path>
+          </svg>
+          Edit Task
+        </button>
+      </div>
+    </div>
+    <div class="show-reports-container">
+      <div class="reports-show task-report-show">
+        <div class="report-card" *ngFor="let task of tasks; let ind = index">
+          <p class="report-conter">{{ ind + 1 }}</p>
+          <p class="report-details">{{ task.value }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="common-big-card common-container" *ngIf="editReport">
+    <h4 class="card-heading">Today's Planned Tasks</h4>
+    <div class="task-reports-fields">
+      <div
+        class="report-multipule-input-field"
+        *ngFor="let task of tasks; let ind = index"
+      >
+        <input
+          type="text"
+          [(ngModel)]="task.value"
+          class="common-report-input"
+          placeholder="Task {{ ind + 1 }}..."
+        />
+        <button
+          class="reove-input-button"
+          (click)="tasks.splice(ind, 1)"
+          *ngIf="tasks.length > 1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-x h-5 w-5"
+          >
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <button class="add-input-button" (click)="addInputField()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-plus h-4 w-4 mr-2"
+        >
+          <path d="M5 12h14"></path>
+          <path d="M12 5v14"></path>
+        </svg>
+        Add Another Task
+      </button>
+      <div class="card-footer-container">
+        <span class="card-footer-text">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-calendar h-4 w-4 mr-1"
+          >
+            <path d="M8 2v4"></path>
+            <path d="M16 2v4"></path>
+            <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+            <path d="M3 10h18"></path>
+          </svg>
+          Tasks will be saved for {{plannTaskReport.date}}
+        </span>
+        <button class="common-sbmit-button" (click)="submitReport()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-save h-4 w-4 mr-2"
+          >
+            <path
+              d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
+            ></path>
+            <polyline points="17 21 17 13 7 13 7 21"></polyline>
+            <polyline points="7 3 7 8 15 8"></polyline>
+          </svg>
+          Save Tasks
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

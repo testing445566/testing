@@ -1,0 +1,390 @@
+<section class="report-section">
+  <div class="common-page-heding-font">
+    <h1 class="heading">End-of-Day Report</h1>
+    <p class="sub-heading">
+      Submit your daily report for today ({{ eodReport.date }})
+    </p>
+  </div>
+
+  <div
+    class="common-alert common-container user-danger-alert"
+    *ngIf="editAlertShow"
+  >
+    <div class="alert-svg-icon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="20"
+        fill="none"
+      >
+        <circle
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          stroke-width="1.5"
+        ></circle>
+        <path
+          d="M12 8V12L14 14"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+      </svg>
+    </div>
+    <div class="common-alert-details">
+      <p class="common-alert-heading">
+        Edit Count: {{ eodReport.editCount }}/3
+      </p>
+      <p class="common-alert-sub-heading">
+        You have reached the maximum number of edits for today.
+      </p>
+    </div>
+  </div>
+
+  <div
+    class="common-alert common-container user-success-alert"
+    *ngIf="successAlertShow"
+  >
+    <div class="alert-svg-icon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-check-circle h-5 w-5 text-green-600"
+      >
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <path d="m9 11 3 3L22 4"></path>
+      </svg>
+    </div>
+    <div class="common-alert-details">
+      <p class="common-alert-heading">
+        End-of-day report updated successfully!
+      </p>
+    </div>
+  </div>
+  <div
+    class="common-alert common-container user-danger-alert"
+    *ngIf="dangerAlertShow"
+  >
+    <div class="alert-svg-icon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-alert-circle h-5 w-5"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" x2="12" y1="8" y2="12"></line>
+        <line x1="12" x2="12.01" y1="16" y2="16"></line>
+      </svg>
+    </div>
+    <div class="common-alert-details">
+      <p class="common-alert-heading">{{ message }}</p>
+    </div>
+  </div>
+
+  <div class="common-container reports-container" *ngIf="showUpdateList">
+    <div class="common-report-container">
+      <div class="report-edit-button-container">
+        <div class="report-common-svg-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-check-circle h-5 w-5 text-green-600 report-svg-color"
+          >
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <path d="m9 11 3 3L22 4"></path>
+          </svg>
+        </div>
+        <div class="report-details">
+          <h2 class="report-heading">Today's Report Submitted</h2>
+          <span class="report-sub-heading">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-clock h-3 w-3 mr-1"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            {{ eodReport.workingHours }} hours •
+            {{ eodReport.completedTasks.length }} tasks completed
+          </span>
+        </div>
+      </div>
+      <div class="report-edit-button">
+        <button
+          class="edit-button eod-report-button"
+          (click)="editReportButton()"
+          [ngStyle]="{ display: eodReport.editCount >= 3 ? 'none' : '' }"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-pen h-4 w-4 mr-2"
+          >
+            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path>
+          </svg>
+          Edit Report
+        </button>
+      </div>
+    </div>
+    <div class="show-reports-container">
+      <div class="reports-show eod-report-show">
+        <div class="eod-report-task">
+          <div class="eod-report-task-svg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-check-square h-5 w-5 text-purple-600"
+            >
+              <path d="m9 11 3 3L22 4"></path>
+              <path
+                d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
+              ></path>
+            </svg>
+            Completed Tasks
+          </div>
+          <div class="eod-show-time">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-clock h-4 w-4 text-blue-600"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            {{ eodReport.workingHours }}h
+          </div>
+        </div>
+        <div class="report-card" *ngFor="let completedTask of completedTasks">
+          <p class="report-conter">✓</p>
+          <p class="report-details">{{ completedTask.value }}</p>
+        </div>
+        <div class="eod-report-task" *ngIf="eodReport.challenges.trim()">
+          <div class="eod-report-task-svg challenges-faced">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-alert-triangle h-5 w-5 text-orange-600"
+            >
+              <path
+                d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"
+              ></path>
+              <path d="M12 9v4"></path>
+              <path d="M12 17h.01"></path>
+            </svg>
+            Challenges Faced
+          </div>
+        </div>
+        <div
+          class="report-card challenges-card"
+          *ngIf="eodReport.challenges.trim()"
+        >
+          <p class="report-details">{{ eodReport.challenges }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="common-big-card common-container" *ngIf="editReport">
+    <h4 class="card-heading">Daily Report Form</h4>
+    <div class="task-reports-fields">
+      <div
+        class="report-multipule-input-field"
+        *ngFor="let completedTask of completedTasks; let ind = index"
+      >
+        <input
+          type="text"
+          [(ngModel)]="completedTask.value"
+          class="common-report-input"
+          placeholder="Task {{ ind + 1 }}.."
+        />
+        <button
+          class="reove-input-button"
+          (click)="completedTasks.splice(ind, 1)"
+          *ngIf="completedTasks.length > 1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-x h-5 w-5"
+          >
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <button class="add-input-button" (click)="addNewInput()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-plus h-4 w-4 mr-2"
+        >
+          <path d="M5 12h14"></path>
+          <path d="M12 5v14"></path>
+        </svg>
+        Add Another Task
+      </button>
+        <div class="end-report-fiels">
+          <div class="end-report-field">
+            <label for="workingHoure" class="end-report-field-label">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-clock h-4 w-4 inline mr-2"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              Working Hours Today *
+            </label>
+            <input
+              type="number"
+              id="workingHoure"
+              class="end-report-field-input"
+              name="hours"
+              [(ngModel)]="eodReport.workingHours"
+            />
+          </div>
+          <div class="end-report-field">
+            <label for="workingHoure" class="end-report-field-label">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-alert-triangle h-4 w-4 inline mr-2"
+              >
+                <path
+                  d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"
+                ></path>
+                <path d="M12 9v4"></path>
+                <path d="M12 17h.01"></path>
+              </svg>
+              Challenges Faced (Optional)
+            </label>
+            <textarea
+              placeholder="Describe any challenges or blockers you encountered today..."
+              type="number"
+              id="workingHoure"
+              [(ngModel)]="eodReport.challenges"
+              class="end-report-field-input end-report-field-textarea"
+              name="hours"
+            ></textarea>
+          </div>
+        </div>
+        <div class="card-footer-container">
+          <span class="card-footer-text">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-calendar h-4 w-4 mr-1"
+            >
+              <path d="M8 2v4"></path>
+              <path d="M16 2v4"></path>
+              <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+              <path d="M3 10h18"></path>
+            </svg>
+            Tasks will be saved for {{ eodReport.date }}
+          </span>
+          <button class="common-sbmit-button" (click)="submitReports()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-save h-4 w-4 mr-2"
+            >
+              <path
+                d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
+              ></path>
+              <polyline points="17 21 17 13 7 13 7 21"></polyline>
+              <polyline points="7 3 7 8 15 8"></polyline>
+            </svg>
+            Save Tasks
+          </button>
+        </div>
+    </div>
+  </div>
+</section>
