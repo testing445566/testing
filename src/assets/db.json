@@ -9,7 +9,7 @@
       "position": "Administrator",
       "phone": 1234567890,
       "password": "Admin@123",
-      "isActive": true,
+      "isActive": false,
       "createdAt": "27/6/2025",
       "master": true
     },
@@ -48,7 +48,7 @@
       "position": "Software Developer",
       "phone": 9016046525,
       "password": "Test@123",
-      "isActive": false,
+      "isActive": true,
       "createdAt": "30/6/2025",
       "master": false
     }
@@ -97,6 +97,28 @@
         "test"
       ],
       "userId": "1060"
+    },
+    {
+      "id": "fe79",
+      "updatedAt": "2025-07-01T12:08:21.618Z",
+      "createdAt": "2025-07-01T10:46:05.403Z",
+      "date": "1/7/2025",
+      "editCount": 3,
+      "tasks": [
+        "test"
+      ],
+      "userId": "13f4"
+    },
+    {
+      "id": "12b6",
+      "updatedAt": "2025-07-02T06:00:34.070Z",
+      "createdAt": "2025-07-02T05:59:54.649Z",
+      "date": "2/7/2025",
+      "editCount": 0,
+      "tasks": [
+        "test"
+      ],
+      "userId": "13f4"
     }
   ],
   "eodReports": [
@@ -147,6 +169,32 @@
       "userId": "1060",
       "workingHours": 8,
       "createdAt": "2025-06-30T10:12:19.105Z"
+    },
+    {
+      "id": "d5d6",
+      "challenges": "not",
+      "completedTasks": [
+        "test"
+      ],
+      "date": "1/7/2025",
+      "editCount": 3,
+      "updatedAt": "2025-07-01T12:08:17.736Z",
+      "userId": "13f4",
+      "workingHours": 8,
+      "createdAt": "2025-07-01T10:46:05.403Z"
+    },
+    {
+      "id": "296b",
+      "challenges": "",
+      "completedTasks": [
+        "test"
+      ],
+      "date": "2/7/2025",
+      "editCount": 0,
+      "updatedAt": "2025-07-02T06:00:38.022Z",
+      "userId": "13f4",
+      "workingHours": 0.5,
+      "createdAt": "2025-07-02T05:59:54.649Z"
     }
   ]
 }
