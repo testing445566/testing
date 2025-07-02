@@ -9,7 +9,7 @@
       "position": "Administrator",
       "phone": 1234567890,
       "password": "Admin@123",
-      "isActive": false,
+      "isActive": true,
       "createdAt": "27/6/2025",
       "master": true
     },
