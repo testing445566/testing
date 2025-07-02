@@ -116,7 +116,7 @@
       <div class="common-alert-container">
         <div
           class="common-alert user-yellow-alert"
-          *ngIf="taskPlanned === 'Success' ? false : true"
+          *ngIf="taskPlanned === 'Completed' ? false : true"
         >
           <div class="alert-svg-icon">
             <svg
@@ -161,7 +161,7 @@
         <div
           class="common-alert user-success-alert"
           *ngIf="
-            taskPlanned === 'Success' && eodReport === 'Success' ? true : false
+            taskPlanned === 'Completed' && eodReport === 'Completed' ? true : false
           "
         >
           <div class="alert-svg-icon">
@@ -196,7 +196,7 @@
         </div>
         <div
           class="common-alert user-primary-alert"
-          *ngIf="eodReport === 'Success' ? false : true"
+          *ngIf="eodReport === 'Completed' ? false : true"
         >
           <div class="alert-svg-icon">
             <svg

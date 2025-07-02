@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { IEodReports } from 'src/app/helper/interface/IeodReport';
-import { IRoleUser } from 'src/app/helper/interface/IuserRole';
-import { AdminService } from 'src/app/services/admin/user/admin.service';
-import { CheckUserService } from 'src/app/services/user-role/check-user.service';
-import { UserService } from 'src/app/services/user/user.service';
+import { Component, OnInit } from "@angular/core";
+import { IEodReports } from "src/app/helper/interface/IeodReport";
+import { IRoleUser } from "src/app/helper/interface/IuserRole";
+import { AdminService } from "src/app/services/admin/user/admin.service";
+import { CheckUserService } from "src/app/services/user-role/check-user.service";
+import { UserService } from "src/app/services/user/user.service";
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  selector: "app-dashboard",
+  templateUrl: "./dashboard.component.html",
+  styleUrls: ["./dashboard.component.scss"],
 })
 export class DashboardComponent implements OnInit {
   // employee variable
@@ -15,8 +15,8 @@ export class DashboardComponent implements OnInit {
   isAdmin!: boolean;
   header!: string;
   subHeading!: string;
-  taskPlanned: string = 'Pending';
-  eodReport: string = 'Pending';
+  taskPlanned: string = "Pending";
+  eodReport: string = "Pending";
   weeklyReport: number = 0;
   avgWorkingHoures: number = 0;
   resentActivity: any = [];
@@ -47,10 +47,10 @@ export class DashboardComponent implements OnInit {
       this.userRole = userRole;
       this.isAdmin = userRole.isAdmin;
       this.header = this.isAdmin
-        ? 'Admin Dashboard'
-        : `Welcome back, ${userRole.name.split(' ')[0]}!`;
+        ? "Admin Dashboard"
+        : `Welcome back, ${userRole.name.split(" ")[0]}!`;
       this.subHeading = this.isAdmin
-        ? 'Overview of employee work tracking and compliance'
+        ? "Overview of employee work tracking and compliance"
         : "Here's your work summary for today";
     });
 
@@ -63,11 +63,14 @@ export class DashboardComponent implements OnInit {
 
   userActiona(): void {
     this.userService.getPlannTaskReports().subscribe((plannReport) => {
+      console.log(plannReport[0])
+      this.taskPlanned =
+        plannReport[0].editCount < 0 ? "Pending" : "Completed";
       this.userService.getEodReport().subscribe((eodReport) => {
         this.weeklyReport = plannReport.filter((report) => {
           return eodReport.some((val) => {
-            const valDate = val.date.split('/').reverse();
-            const reportDate = report.date.split('/').reverse();
+            const valDate = val.date.split("/").reverse();
+            const reportDate = report.date.split("/").reverse();
             const date = new Date(+valDate[0], +valDate[1], +valDate[2]);
             const eodDate = new Date(
               +reportDate[0],
@@ -95,12 +98,12 @@ export class DashboardComponent implements OnInit {
         if (res.length > 0) {
           const data = res[0];
           this.resentActivity.push({
-            type: 'End-of-Day Report',
+            type: "End-of-Day Report",
             date: data.date,
             workingHours: data.workingHours,
             editCount: data.completedTasks.length,
           });
-          this.eodReport = 'Success';
+          this.eodReport = "Completed";
         }
       },
     });
@@ -125,12 +128,12 @@ export class DashboardComponent implements OnInit {
               next: (resEod) => {
                 Object.keys(days).forEach((key) => {
                   var total = 0;
-                  const day: string[] = key.split('/').reverse();
+                  const day: string[] = key.split("/").reverse();
                   const getDay = new Date(
                     +day[0],
                     +day[1] - 1,
                     +day[2]
-                  ).toLocaleDateString('en-in', { weekday: 'short' });
+                  ).toLocaleDateString("en-in", { weekday: "short" });
                   this.daysName.push(getDay);
                   this.daysName.sort(function (a, b) {
                     return a.localeCompare(b);
@@ -160,10 +163,10 @@ export class DashboardComponent implements OnInit {
                 this.complianceRateReport.reverse();
                 this.complianceRateReport[
                   this.complianceRateReport.length - 1
-                ].day = 'Today';
+                ].day = "Today";
                 this.complianceRateReport[
                   this.complianceRateReport.length - 2
-                ].day = 'Yesterday';
+                ].day = "Yesterday";
               },
             });
           },
